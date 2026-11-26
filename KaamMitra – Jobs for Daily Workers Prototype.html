@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KaamMitra – Daily work, near you</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Sans:wght@400;500;700&family=Noto+Sans+Devanagari:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FFFAEB;--surface:#fff;--ink:#1F1B14;--mute:#6D6554;--line:#EFE4C6;--acc:#E85D04;--onacc:#fff;--sun:#FFC81E;--deep:#1F1B14;--tint:#FFEFC2;--ok:#16874F;--okbg:#DDF3E6;--stage:#EDE3C8;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17130C;--surface:#241E12;--ink:#FFF4D6;--mute:#BDB08C;--line:#3A311C;--tint:#3B2E0C;--okbg:#12361F;--stage:#0B0905;--acc:#FF8A3D;--onacc:#1F1100;--ok:#4BD58A}}
+:root[data-theme="dark"]{--bg:#17130C;--surface:#241E12;--ink:#FFF4D6;--mute:#BDB08C;--line:#3A311C;--tint:#3B2E0C;--okbg:#12361F;--stage:#0B0905;--acc:#FF8A3D;--onacc:#1F1100;--ok:#4BD58A}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{background:var(--stage);color:var(--ink);font:500 16px/1.4 'DM Sans','Noto Sans Devanagari',system-ui,sans-serif;display:flex;align-items:center;justify-content:center}
+h1,h2,h3,.disp{font-family:'Bricolage Grotesque','Noto Sans Devanagari',sans-serif;letter-spacing:-.01em}
+button,input{font:inherit;color:inherit}
+button{border:0;background:none;cursor:pointer}
+button:focus-visible,input:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.phone{width:100%;max-width:400px;height:100%;max-height:820px;background:var(--bg);position:relative;overflow:hidden;display:flex;flex-direction:column}
+@media(min-width:520px){.phone{border-radius:38px;box-shadow:0 30px 80px rgba(0,0,0,.3);border:8px solid #17130c}}
+@media(min-width:900px){.phone{height:min(820px,94vh)}body{background:radial-gradient(circle at 25% 15%,#f0a11a,var(--stage) 65%)}}
+.scroll{flex:1;overflow-y:auto;padding:20px 20px 104px}
+.row{display:flex;align-items:center;gap:12px}.sp{justify-content:space-between}
+.mute{color:var(--mute);font-size:14px}
+h1.t{font-size:28px;line-height:1.1}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:6px;background:var(--tint);padding:6px;border-radius:20px;margin:16px 0 4px}
+.seg button{padding:12px 6px;border-radius:15px;font-weight:700;font-size:15px;line-height:1.2}
+.seg button[aria-pressed=true]{background:var(--deep);color:#fff}
+@media(prefers-color-scheme:dark){.seg button[aria-pressed=true]{background:var(--sun);color:#1F1B14}}
+.free{display:flex;align-items:center;gap:12px;background:var(--okbg);border-radius:18px;padding:14px;margin-top:12px}
+.free b{color:var(--ok)}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:12px 0 8px;scrollbar-width:none}
+.chip{flex:none;display:flex;align-items:center;gap:6px;padding:10px 16px;border-radius:99px;border:2px solid var(--line);background:var(--surface);font-weight:700}
+.chip[aria-pressed=true]{background:var(--sun);border-color:var(--sun);color:#1F1B14}
+.job{background:var(--surface);border:2px solid var(--line);border-radius:24px;padding:16px;margin-bottom:14px}
+.ico{width:60px;height:60px;border-radius:20px;background:var(--tint);display:grid;place-items:center;font-size:32px;flex:none}
+.job h3{font-size:20px;line-height:1.15}
+.pay{font:800 30px 'Bricolage Grotesque';color:var(--acc);line-height:1}
+.meta{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0}
+.meta div{background:var(--bg);border-radius:14px;padding:10px 12px;font-size:14px}
+.meta b{display:block;font-size:15px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--acc);color:var(--onacc);font-weight:800;font-size:18px;padding:16px 20px;border-radius:18px;min-height:58px;width:100%}
+.btn:active{transform:scale(.97)}.btn.ok{background:var(--okbg);color:var(--ok)}.btn.yel{background:var(--sun);color:#1F1B14}
+.call{flex:none;width:58px;height:58px;border-radius:18px;background:var(--sun);display:grid;place-items:center;font-size:26px}
+.card{background:var(--surface);border:2px solid var(--line);border-radius:22px;padding:16px;margin-bottom:12px}
+.sec{margin:22px 0 10px;font-size:20px}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.tgrid button{display:flex;flex-direction:column;align-items:center;gap:4px;padding:14px 4px;border-radius:20px;border:2px solid var(--line);background:var(--surface);font-weight:700;font-size:14px}
+.tgrid button span{font-size:30px}
+.tgrid button[aria-pressed=true]{background:var(--sun);border-color:var(--sun);color:#1F1B14}
+.stp{display:flex;align-items:center;justify-content:space-between;background:var(--surface);border:2px solid var(--line);border-radius:20px;padding:10px 12px}
+.stp button{width:54px;height:54px;border-radius:16px;background:var(--tint);font:800 28px 'DM Sans';color:var(--acc)}
+.stp b{font:800 28px 'Bricolage Grotesque'}
+input.f{width:100%;padding:16px;border-radius:18px;border:2px solid var(--line);background:var(--surface);font-size:17px}
+.lab{font-weight:800;margin:20px 0 8px;font-size:17px}
+.sw{width:62px;height:36px;border-radius:99px;background:var(--line);position:relative;flex:none;transition:.2s}
+.sw::after{content:"";position:absolute;top:4px;left:4px;width:28px;height:28px;border-radius:50%;background:#fff;transition:.2s}
+.sw[aria-checked=true]{background:var(--ok)}.sw[aria-checked=true]::after{left:30px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.stat{background:var(--surface);border:2px solid var(--line);border-radius:20px;padding:14px}
+.stat b{font:800 28px 'Bricolage Grotesque';display:block}
+.tick{width:84px;height:84px;border-radius:50%;background:var(--ok);display:grid;place-items:center;margin:6px auto 14px;font-size:44px;color:#fff;animation:pop .5s cubic-bezier(.2,1.4,.4,1)}
+@keyframes pop{from{transform:scale(.3);opacity:0}}
+nav{position:absolute;left:0;right:0;bottom:0;background:var(--surface);border-top:2px solid var(--line);display:grid;grid-template-columns:repeat(3,1fr);padding:8px 8px calc(10px + env(safe-area-inset-bottom,0px))}
+nav button{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:13px;color:var(--mute);padding:6px 0;font-weight:700}
+nav button span{font-size:26px}
+nav button[aria-current=page]{color:var(--acc)}
+.toast{position:absolute;left:20px;right:20px;bottom:100px;background:var(--ink);color:var(--bg);padding:14px 16px;border-radius:14px;opacity:0;transform:translateY(10px);transition:.25s;pointer-events:none;z-index:5;font-weight:700}
+.toast.on{opacity:1;transform:none}
+@media(max-width:360px){.scroll{padding:16px 16px 104px}h1.t{font-size:24px}.pay{font-size:26px}.tgrid button{font-size:12.5px}}
+@media(max-height:700px){.job{padding:12px}.meta{margin:10px 0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="phone"><div class="scroll" id="view"></div><nav id="nav"></nav><div class="toast" id="toast" role="status"></div></div>
+<script>
+const T=[['Painter','🎨','पेंटर'],['Mason','🧱','राजमिस्त्री'],['Loader','📦','लोडर'],['Helper','🙋','हेल्पर'],['Electrician','💡','इलेक्ट्रीशियन'],['Cleaner','🧹','सफाई']];
+const JOBS=[
+{id:1,t:'Painter',pay:900,w:'Today, 8 AM',d:1.2,a:'Sector 14, Gurugram',n:3,by:'Sharma Constructions'},
+{id:2,t:'Loader',pay:700,w:'Today, 10 AM',d:2.0,a:'Sadar Bazaar, Gurugram',n:4,by:'Gupta Traders'},
+{id:3,t:'Mason',pay:1100,w:'Tomorrow, 7 AM',d:3.4,a:'Sohna Road, Gurugram',n:2,by:'Verma Builders'},
+{id:4,t:'Helper',pay:600,w:'Today, 2 PM',d:0.8,a:'Sector 29, Gurugram',n:2,by:'Jain Family'},
+{id:5,t:'Electrician',pay:1000,w:'Tomorrow, 9 AM',d:4.1,a:'DLF Phase 3, Gurugram',n:1,by:'Kapoor Homes'},
+{id:6,t:'Cleaner',pay:650,w:'Today, 4 PM',d:1.9,a:'Palam Vihar, Gurugram',n:2,by:'Bansal Offices'}];
+const WK=[{n:'Raju Yadav',t:'Painter',d:0.9,r:4.8},{n:'Sunil Kumar',t:'Painter',d:1.6,r:4.6},{n:'Mohan Lal',t:'Mason',d:1.1,r:4.9},{n:'Deepak',t:'Loader',d:0.7,r:4.5},{n:'Ramesh',t:'Helper',d:2.2,r:4.7},{n:'Imran Ali',t:'Electrician',d:1.3,r:4.8},{n:'Sita Devi',t:'Cleaner',d:1.0,r:4.7}];
+const S={tab:'home',role:'w',f:'All',acc:[],free:true,P:{t:'Painter',n:2,pay:800,a:'',day:'Today'},posted:false};
+const $=s=>document.querySelector(s),v=$('#view');
+const ti=n=>T.find(x=>x[0]===n);
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('on'),2400)}
+const jobCard=j=>{const x=ti(j.t),a=S.acc.includes(j.id);return `<div class="job"><div class="row"><div class="ico">${x[1]}</div><div class="grow" style="flex:1"><h3>${x[2]} · ${j.t}</h3><span class="mute">${j.by}</span></div><div class="pay">₹${j.pay}</div></div>
+ <div class="meta"><div>🕗 <b>${j.w}</b></div><div>📍 <b>${j.d} km away</b></div><div>👷 <b>${j.n} workers needed</b></div><div>💰 <b>Paid same day</b></div></div>
+ <div class="row"><button class="btn ${a?'ok':''}" data-take="${j.id}">${a?'✓ Job taken':'Take this job · काम लें'}</button><button class="call" data-call="${j.by}" aria-label="Call ${j.by}">📞</button></div></div>`};
+const V={
+home:()=>S.role==='w'?`<span class="mute">Namaste, Raju 🙏</span><h1 class="t">आज का काम<br>Today’s work</h1>
+ <div class="seg"><button aria-pressed="true">मुझे काम चाहिए<br><small>I need work</small></button><button aria-pressed="false" data-role="c">मुझे मज़दूर चाहिए<br><small>I need workers</small></button></div>
+ <div class="free"><span style="font-size:26px">${S.free?'🟢':'⚪'}</span><div><b>${S.free?'You are free today':'You are not available'}</b><div class="mute">${S.free?'Contractors can see you':'Switch on in Profile'}</div></div></div>
+ <div class="chips">${[['All','⭐'],...T.map(x=>[x[0],x[1]])].map(c=>`<button class="chip" aria-pressed="${S.f===c[0]}" data-f="${c[0]}"><span>${c[1]}</span>${c[0]}</button>`).join('')}</div>
+ ${JOBS.filter(j=>S.f==='All'||j.t===S.f).map(jobCard).join('')}`:
+ `<span class="mute">Namaste, Sharma ji 🙏</span><h1 class="t">मज़दूर चाहिए?<br>Hire workers</h1>
+ <div class="seg"><button aria-pressed="false" data-role="w">मुझे काम चाहिए<br><small>I need work</small></button><button aria-pressed="true">मुझे मज़दूर चाहिए<br><small>I need workers</small></button></div>`+(S.posted?post():form()),
+work:()=>{const l=JOBS.filter(j=>S.acc.includes(j.id));return `<h1 class="t">मेरा काम<br>My work</h1><div style="margin-top:16px">`+(l.length?l.map(j=>{const x=ti(j.t);return `<div class="card"><div class="row"><div class="ico">${x[1]}</div><div style="flex:1"><h3 style="font-size:19px">${x[2]} · ${j.t}</h3><span class="mute">${j.w}</span></div><div class="pay" style="font-size:24px">₹${j.pay}</div></div><div class="mute" style="margin:12px 0">📍 ${j.a}</div><div class="row"><button class="btn yel" data-toast="Opening map to ${j.a}">🧭 Show way · रास्ता</button><button class="call" data-call="${j.by}" aria-label="Call">📞</button></div></div>`}).join(''):`<div class="card"><h3>No work yet</h3><p class="mute" style="margin:6px 0 14px">Tap “Take this job” on any job to see it here.</p><button class="btn" data-go="home">See jobs · काम देखें</button></div>`)+`</div>`},
+me:()=>`<div class="row"><div class="ico" style="width:76px;height:76px;font-size:40px">👷</div><div><h1 class="t" style="font-size:25px">Raju Yadav</h1><span class="mute">Gurugram · 8 years of experience</span></div></div>
+ <div class="card row sp" style="margin-top:20px"><div style="flex:1"><b>I am free today</b><div class="mute">आज मैं खाली हूँ</div></div><button class="sw" role="switch" aria-checked="${S.free}" aria-label="I am free today" data-sw></button></div>
+ <div class="stats"><div class="stat"><b>₹3,400</b><span class="mute">earned this week</span></div><div class="stat"><b>${5+S.acc.length}</b><span class="mute">jobs done</span></div></div>
+ <h3 class="sec">My skills</h3><div class="chips" style="flex-wrap:wrap"><span class="chip" style="background:var(--sun);border-color:var(--sun);color:#1F1B14">🎨 Painter</span><span class="chip">🙋 Helper</span></div>
+ <div class="card" style="background:var(--okbg);border:0;margin-top:14px"><b style="color:var(--ok)">✓ Phone number verified</b><div class="mute">Contractors trust verified workers more.</div></div>`
+};
+function form(){const P=S.P;return `<div class="lab">काम का प्रकार · Type of work</div><div class="tgrid">${T.map(x=>`<button aria-pressed="${P.t===x[0]}" data-pt="${x[0]}"><span>${x[1]}</span>${x[0]}</button>`).join('')}</div>
+ <div class="lab">कितने मज़दूर · Workers needed</div><div class="stp"><button data-n="-1" aria-label="Fewer">−</button><b>${P.n}</b><button data-n="1" aria-label="More">+</button></div>
+ <div class="lab">दिहाड़ी · Pay per day</div><div class="stp"><button data-p="-50" aria-label="Less pay">−</button><b>₹${P.pay}</b><button data-p="50" aria-label="More pay">+</button></div>
+ <div class="lab">कब · When</div><div class="chips" style="padding-top:0">${['Today','Tomorrow'].map(d=>`<button class="chip" aria-pressed="${P.day===d}" data-day="${d}">${d}</button>`).join('')}</div>
+ <div class="lab">जगह · Work location</div><input class="f" id="loc" placeholder="e.g. Sector 14, Gurugram" value="${P.a}" aria-label="Work location">
+ <button class="btn" style="margin-top:22px" data-post>Post job · काम डालें</button>`}
+function post(){const P=S.P,x=ti(P.t),l=WK.filter(w=>w.t===P.t);return `<div class="card" style="margin-top:16px;text-align:center"><div class="tick">✓</div><h3 style="font-size:22px">Job posted!</h3><p class="mute" style="margin-top:6px">${l.length+4} ${P.t.toLowerCase()}s near ${P.a||'you'} have been told.<br>${x[1]} ${P.n} needed · ₹${P.pay}/day · ${P.day}</p></div>
+ <h3 class="sec">Available ${P.t}s nearby</h3>${l.map(w=>`<div class="card row"><div class="ico">${x[1]}</div><div style="flex:1"><b>${w.n}</b><div class="mute">${w.d} km · ⭐ ${w.r}</div></div><button class="call" data-call="${w.n}" aria-label="Call ${w.n}">📞</button></div>`).join('')}
+ <button class="btn yel" style="margin-top:6px" data-again>Post another job</button>`}
+function nav(){const b=(k,l,i)=>`<button data-go="${k}" ${S.tab===k?'aria-current="page"':''}><span aria-hidden="true">${i}</span>${l}</button>`;
+ $('#nav').innerHTML=b('home','काम · Jobs','🔍')+b('work','मेरा काम','📋')+b('me','प्रोफ़ाइल','👤')}
+function render(){v.innerHTML=V[S.tab]();nav()}
+function go(t){S.tab=t;render();v.scrollTop=0}
+const keep=()=>{const l=$('#loc');if(l)S.P.a=l.value};
+document.addEventListener('click',e=>{const t=e.target.closest('button');if(!t)return;const d=t.dataset;
+ if(d.go)return go(d.go);
+ if(d.role){S.role=d.role;S.posted=false;return render()}
+ if(d.f){S.f=d.f;return render()}
+ if(d.take){const id=+d.take,i=S.acc.indexOf(id);if(i<0){S.acc.push(id);toast('Job taken! See it in My work')}else{S.acc.splice(i,1)}return render()}
+ if(d.call)return toast('Calling '+d.call+'…');
+ if(d.toast)return toast(d.toast);
+ if(d.sw!==undefined){S.free=!S.free;return render()}
+ if(d.pt){keep();S.P.t=d.pt;return render()}
+ if(d.n){keep();S.P.n=Math.min(20,Math.max(1,S.P.n+ +d.n));return render()}
+ if(d.p){keep();S.P.pay=Math.min(2000,Math.max(400,S.P.pay+ +d.p));return render()}
+ if(d.day){keep();S.P.day=d.day;return render()}
+ if(d.post!==undefined){keep();if(!S.P.a.trim()){$('#loc').focus();return toast('Please add the work location')}S.posted=true;render();return v.scrollTo(0,0)}
+ if(d.again!==undefined){S.posted=false;S.P.a='';return render()}});
+render();
+</script>
+</body>
+</html>
